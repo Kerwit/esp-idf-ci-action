@@ -10,7 +10,7 @@ inputs:
     required: false
   esp_idf_version:
     description: "Version of ESP-IDF docker image to use"
-    default: "v2"
+    default: "v5"
     required: false
   target:
     description: "ESP32 variant to build for"
