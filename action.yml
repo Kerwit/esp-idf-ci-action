@@ -25,7 +25,5 @@ runs:
   using: "composite"
   steps:
     - run: |
-        docker run -t  -v "${GITHUB_WORKSPACE}:/app/${{ github.repository }}" \
-        -w "/app/${{ github.repository }}/${{ inputs.path }}" kerwit/idf-freertos:${{ inputs.esp_idf_version }} \
-        /bin/bash -c 'git config --global --add safe.directory "*"
+        docker run -t  -w "/app/${{ github.repository }}/${{ inputs.path }}" kerwit/idf-freertos:${{ inputs.esp_idf_version }} 
       shell: bash
