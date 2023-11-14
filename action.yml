@@ -10,7 +10,7 @@ inputs:
     required: false
   esp_idf_version:
     description: "Version of ESP-IDF docker image to use"
-    default: "v13"
+    default: "v1"
     required: false
   target:
     description: "ESP32 variant to build for"
@@ -27,7 +27,7 @@ runs:
     - run: |
         export IDF_TARGET=$(echo "${{ inputs.target }}" | tr '[:upper:]' '[:lower:]' | tr -d '_-')
         docker run -t -e IDF_TARGET="${IDF_TARGET}" -v "${GITHUB_WORKSPACE}:/app/${{ github.repository }}" \
-        -w "/app/${{ github.repository }}/${{ inputs.path }}" kerwit/idf-freertos:${{ inputs.esp_idf_version }}  \
+        -w "/app/${{ github.repository }}/${{ inputs.path }}" kerwit/idf-ubuntu:${{ inputs.esp_idf_version }}  \
         /bin/bash -c 'git config --global --add safe.directory "*" && ${{ inputs.command }}'
       shell: bash
     
