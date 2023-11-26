@@ -18,7 +18,7 @@ inputs:
     required: false
   command:
     description: "Command to run inside the docker container (default: builds the project)"
-    default: "vendors/espressif/esp-idf/install.sh && source vendors/espressif/esp-idf/export.sh && idf.py --version && cmake -DVENDOR=espressif -DBOARD=esp32_devkitc -DCOMPILER=xtensa-esp32 -S . -B /app/Kerwit/ESP32-CI-CD/build  -DAFR_ENABLE_ALL_MODULES=1 -DAFR_ENABLE_TESTS=0 -GNinja  && ninja -C ./build -j8 "
+    default: "vendors/espressif/esp-idf/install.sh && source vendors/espressif/esp-idf/export.sh && idf.py --version && cmake -DVENDOR=espressif -DBOARD=esp32_devkitc -DCOMPILER=xtensa-esp32 -S . -B /app/${{ github.repository }}/build  -DAFR_ENABLE_ALL_MODULES=1 -DAFR_ENABLE_TESTS=0 -GNinja  && ninja -C ./build -j8 "
     required: false
 
 runs:
